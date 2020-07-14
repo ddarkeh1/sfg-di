@@ -1,9 +1,6 @@
 package ingg.rgs.sfgdi;
 
-import ingg.rgs.sfgdi.controllers.ConstructorInjectedController;
-import ingg.rgs.sfgdi.controllers.MyController;
-import ingg.rgs.sfgdi.controllers.PropertyInjectedController;
-import ingg.rgs.sfgdi.controllers.SetterInjectedController;
+import ingg.rgs.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +11,10 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
